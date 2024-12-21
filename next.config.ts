@@ -1,13 +1,12 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  reactStrictMode: false, // React strict mode-ni o'chirish
+  reactStrictMode: true, 
   webpack(config, { isServer }) {
-    // Serverda bo'lmagan hollarda 'fs' va 'path' modullarini o'chirish
     if (!isServer) {
       config.resolve.fallback = {
-        fs: false,
-        path: false,
+        fs: true,
+        path: true,
       };
     }
     return config;
